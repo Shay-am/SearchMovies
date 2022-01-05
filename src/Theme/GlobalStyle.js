@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     width: 100vw;
+    background-color: ${({ theme }) => theme.color.primary};
    
   }
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Input } from './Components/Atoms/Input/Input';
 import { GlobalStyle, theme } from './Theme';
+import { Nav, Header } from './Components/Organisms';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -12,10 +12,11 @@ const Wrapper = styled.div`
 export const App = () => {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Wrapper>
-          <Input />
+          <Nav />
+          <Header />
         </Wrapper>
       </ThemeProvider>
     </>

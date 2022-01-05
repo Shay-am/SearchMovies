@@ -4,12 +4,9 @@ import SearchIcon from '@mui/icons-material/Search';
 export const InputWrapper = styled.form`
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 1rem;
-  top: 3rem;
-  height: 4rem;
   border: 1px solid ${({ theme }) => theme.color.white};
   border-radius: 0.4rem;
+  margin-right: 0.8rem;
 `;
 
 export const StyledInput = styled.input`
@@ -20,12 +17,17 @@ export const StyledInput = styled.input`
   padding: 0.7rem;
   border: none;
   color: ${({ theme }) => theme.color.white};
+  transition: width 0.5s ease;
+  animation-fill-mode: linear;
 
   &:hover,
   &:focus {
     width: 18rem;
-    transition: width 0.5s ease-in-out;
     outline: none;
+  }
+
+  &::placeholder {
+    color: white;
   }
 `;
 

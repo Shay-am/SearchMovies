@@ -1,11 +1,11 @@
 import React from 'react';
-import { InputWrapper, StyledInput, Image } from './Input.styled';
+import { InputWrapper, StyledInput, StyledSearchIcon } from './Input.styled';
 
 export const Input = () => {
   return (
     <InputWrapper>
       <StyledInput placeholder="search movie" />
-      <Image />
+      <StyledSearchIcon fontSize="2.rem" />
     </InputWrapper>
   );
 };

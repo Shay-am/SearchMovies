@@ -10,12 +10,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   html {
       font-size: 62.5%;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Work Sans', sans-serif;
   }
   body {
     font-size: 1.6rem;
-    width: 100vw;
+    width: 100%;
+    /* overflow:h; */
     background-color: ${({ theme }) => theme.color.primary};
-   
   }
 `;

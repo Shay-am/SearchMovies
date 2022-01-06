@@ -1,12 +1,21 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Wrapper, StyledIcons } from './Footer.styled';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import {
+  Wrapper,
+  StyledFacebookIcon,
+  StyledEmailIcon,
+  StyledLinkedInIcon,
+  StyledDescription
+} from './Footer.styled';
 
 export const Footer = () => {
   return (
-    <Wrapper>
-      <FacebookIcon fontSize="2rem" />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <StyledFacebookIcon fontSize="5rem" />
+        <StyledEmailIcon fontSize="5rem" />
+        <StyledLinkedInIcon fontSize="5rem" />
+      </Wrapper>
+      <StyledDescription>Made By Mateusz </StyledDescription>
+    </>
   );
 };

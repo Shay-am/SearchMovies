@@ -16,7 +16,8 @@ export const StyledCards = styled.div`
 `;
 
 export const StyledHeading = styled.div`
-  transform: translateX(5rem);
+  width: 80%;
+  transform: translateX(7rem);
 `;
 
 export const StyledSlider = styled(Slider)`

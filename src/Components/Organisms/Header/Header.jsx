@@ -1,10 +1,8 @@
 import React from 'react';
-import { Button } from '../../Atoms/Button/Button';
-import { Description } from '../..//Atoms/Description/Description';
-import { H1 } from '../../Atoms/Heading/Heading';
 
+import { Button, H1, Description } from 'Components/Atoms';
+import { MoviesCategory } from 'Components/Organisms';
 import { Wrapper, WrapperDescription, StyledDescription } from './Header.styled';
-import { MoviesCategory } from '../MoviesCategory/MoviesCategory';
 
 export const Header = () => {
   return (

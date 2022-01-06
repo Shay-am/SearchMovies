@@ -10,4 +10,5 @@ export const StyledCards = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin-top: 3rem;
 `;

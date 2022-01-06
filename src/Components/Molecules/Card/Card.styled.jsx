@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 20rem;
-  height: 25rem;
+  width: 38rem;
+  height: 15rem;
   background-color: aqua;
   overflow: hidden;
   margin-right: 4rem;

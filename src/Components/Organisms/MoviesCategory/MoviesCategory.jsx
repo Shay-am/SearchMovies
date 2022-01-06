@@ -1,8 +1,7 @@
 import React from 'react';
-import { H3 } from '../../Atoms/Heading/Heading';
-import { Wrapper } from './MoviesCategory.styled';
-import { CardMovie } from '../../Molecules/Card/Card';
-import { StyledCards } from './MoviesCategory.styled';
+import { H3 } from 'Components/Atoms';
+import { CardMovie } from 'Components/Molecules';
+import { Wrapper, StyledCards } from './MoviesCategory.styled';
 
 export const MoviesCategory = () => {
   return (
@@ -14,8 +13,7 @@ export const MoviesCategory = () => {
         <CardMovie />
         <CardMovie />
         <CardMovie />
-        <CardMovie />
-        <CardMovie />
+
         <CardMovie />
       </StyledCards>
     </Wrapper>

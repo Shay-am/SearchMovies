@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './Theme';
-import { Nav, Header } from './Components/Organisms';
+import { Nav, Footer } from './Components/Organisms';
+import { HomePage } from 'Pages/HomePage';
+import { SearchProvider } from 'Context/SearchProvider';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -13,11 +15,14 @@ export const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Wrapper>
-          <Nav />
-          <Header />
-        </Wrapper>
+        <SearchProvider>
+          <GlobalStyle />
+          <Wrapper>
+            <Nav />
+            <HomePage />
+            <Footer />
+          </Wrapper>
+        </SearchProvider>
       </ThemeProvider>
     </>
   );

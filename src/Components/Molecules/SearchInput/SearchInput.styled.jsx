@@ -18,7 +18,6 @@ export const StyledInput = styled.input`
   border: none;
   color: ${({ theme }) => theme.color.white};
   transition: width 0.5s ease;
-  animation-fill-mode: linear;
 
   &:hover,
   &:focus {

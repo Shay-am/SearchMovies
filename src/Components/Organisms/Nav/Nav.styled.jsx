@@ -9,6 +9,7 @@ export const NavWrapper = styled.nav`
   align-items: center;
   background-color: ${({ theme, bgColor }) => (bgColor ? `${theme.color.black}` : 'transparent')};
   transition: all 0.3s ease-in-out;
+  z-index: 11;
 `;
 
 export const StyledIconMovie = styled(MovieFilterIcon)`

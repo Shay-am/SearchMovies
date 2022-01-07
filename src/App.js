@@ -4,6 +4,7 @@ import { GlobalStyle, theme } from './Theme';
 import { Nav, Footer } from './Components/Organisms';
 import { HomePage } from 'Pages/HomePage/HomePage';
 import { SearchProvider } from 'Context/SearchProvider';
+import { Switch as Routes } from 'Routes/Routes';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -17,6 +18,7 @@ export const App = () => {
       <ThemeProvider theme={theme}>
         <SearchProvider>
           <GlobalStyle />
+          <Routes />
           <Wrapper>
             <Nav />
             <HomePage />

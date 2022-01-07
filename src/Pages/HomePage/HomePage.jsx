@@ -21,7 +21,7 @@ export const HomePage = () => {
   return (
     <div>
       <Header data={top_rated[4]} loading={loading_rated} />
-      {loading && <Description>Loading</Description>}
+      {loading && <Description>Loading...</Description>}
       {!loading && (
         <Main>
           <MoviesCategory name="Popular " data={now_playing} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchInput } from 'Components/Molecules';
 import { ListenScrollEvent } from 'Utils/listenScrollEvent';
-import { NavWrapper, StyledIconMovie, StyledIconWrapper } from './Nav.styled';
+import { NavWrapper, StyledIconMovie, StyledIconWrapper, StyledSearchInput } from './Nav.styled';
 
 export const Nav = () => {
   const { isEvent } = ListenScrollEvent();
@@ -11,7 +11,9 @@ export const Nav = () => {
       <StyledIconWrapper>
         <StyledIconMovie fontSize="6rem" />
       </StyledIconWrapper>
-      <SearchInput />
+      <StyledSearchInput>
+        <SearchInput />
+      </StyledSearchInput>
     </NavWrapper>
   );
 };

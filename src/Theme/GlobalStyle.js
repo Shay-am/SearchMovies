@@ -14,8 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-size: 1.6rem;
-    width: 100%;
-    /* overflow:h; */
+    max-width: 100%;
     background-color: ${({ theme }) => theme.color.primary};
   }
 `;

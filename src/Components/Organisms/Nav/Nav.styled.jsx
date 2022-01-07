@@ -27,3 +27,7 @@ export const StyledIconWrapper = styled.div`
   display: flex;
   margin-left: 5rem;
 `;
+
+export const StyledSearchInput = styled.div`
+  transform: translateX(-2rem);
+`;

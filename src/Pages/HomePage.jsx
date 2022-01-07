@@ -10,7 +10,7 @@ import { getMoviesGenreUrl } from 'Api/Services/getMoviesWithGenres';
 export const HomePage = () => {
   const { data, loading, error, fetchData } = useFetchData(getMoviesUrl('popular'));
   const { data: now_playing } = useFetchData(getMoviesUrl('now_playing'));
-  const { data: top_rated } = useFetchData(getMoviesUrl('top_rated'));
+  const { data: top_rated, loading: loading_rated } = useFetchData(getMoviesUrl('top_rated'));
   const { data: up_coming } = useFetchData(getMoviesUrl('upcoming'));
   const { data: horror } = useFetchData(getMoviesGenreUrl(27));
   const { data: action } = useFetchData(getMoviesGenreUrl(28));
@@ -18,7 +18,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <Header data={data[4]} loading={loading} />
+      <Header data={top_rated[4]} loading={loading_rated} />
       <MoviesCategory name="Popular " data={now_playing} />
       <MoviesCategory name="Trending " data={data} />
       <MoviesCategory name="Top Rated " data={top_rated} />

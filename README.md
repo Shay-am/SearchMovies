@@ -1,6 +1,6 @@
 # Search Movies
 
-## LiveDemo(https://sad-mcnulty-06b4ad.netlify.app)
+### Link to [LiveDemo](https://sad-mcnulty-06b4ad.netlify.app)
 
 ### Stack
 

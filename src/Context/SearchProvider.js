@@ -15,11 +15,13 @@ export const SearchProvider = ({ children }) => {
     `https://api.themoviedb.org/3/search/movie?api_key=6d65a5afbbce1f141e9cfdb6030a79de&language=en-US&query=${searchTerm}&include_adult=false`
   );
 
-  const filterMovies = data.filter((item) => item.poster_path !== null);
+  const [movie, setMovie] = useState([]);
+
+  const filterMoviesWithImage = data.filter((item) => item.poster_path !== null);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
-    setTimeout(fetchData, 2000);
+    fetchData();
   };
 
   const handleChangePage = () => {
@@ -29,12 +31,14 @@ export const SearchProvider = ({ children }) => {
   const value = {
     searchTerm,
     handleChange,
-    data,
-    filterMovies
+    filterMoviesWithImage,
+    loading,
+    movie,
+    setMovie
   };
   useEffect(() => {
-    handleChangePage();
-  }, [searchTerm, data]);
+    !loading && handleChangePage();
+  }, [data]);
   return (
     <>
       <SearchContext.Provider value={value}>{children}</SearchContext.Provider>

@@ -1,22 +1,28 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Wrapper, StyledCard } from './MoviesContainer.styled';
 
 import { CardMovie } from 'Components/Molecules';
 import { useSearchContext } from 'Context/SearchProvider';
+import { Description } from 'Components/Atoms';
 
 export const MoviesContainer = () => {
-  const { filterMovies } = useSearchContext();
+  const { filterMoviesWithImage: filterMovies, loading } = useSearchContext();
 
   return (
-    <Wrapper>
-      {filterMovies &&
-        filterMovies.map((movie, index) => {
-          return (
-            <StyledCard key={index}>
-              <CardMovie key={movie.id} {...movie} />
-            </StyledCard>
-          );
-        })}
-    </Wrapper>
+    <>
+      {loading && <Description>Loading...</Description>}
+      <Wrapper>
+        {!loading &&
+          filterMovies &&
+          filterMovies.map((movie, index) => {
+            return (
+              <StyledCard key={index}>
+                <CardMovie key={movie.id} {...movie} />
+              </StyledCard>
+            );
+          })}
+      </Wrapper>
+    </>
   );
 };

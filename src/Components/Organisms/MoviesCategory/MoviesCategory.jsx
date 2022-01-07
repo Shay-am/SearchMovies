@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { H3 } from 'Components/Atoms';
@@ -15,8 +12,6 @@ import {
 } from './MoviesCategory.styled';
 
 export const MoviesCategory = ({ name, data }) => {
-  // console.log(data);
-  // const data = [];
   const settings = {
     infinite: true,
     speed: 500,
@@ -90,5 +85,6 @@ export const MoviesCategory = ({ name, data }) => {
 };
 
 MoviesCategory.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  data: PropTypes.array
 };

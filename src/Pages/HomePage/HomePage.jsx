@@ -3,9 +3,10 @@ import React from 'react';
 import { Header } from 'Components/Organisms';
 import { MoviesCategory } from 'Components/Organisms';
 import { useFetchData } from 'Hooks/useFetchData';
-import { getUrlTrendingMovies, URL_NOW_PLAYING, URL_TOP_RATED } from 'Api/axios';
+
 import { getMoviesUrl } from 'Api/Services/getMovieUrl';
 import { getMoviesGenreUrl } from 'Api/Services/getMoviesWithGenres';
+import { Main } from './HomePage.styled';
 
 export const HomePage = () => {
   const { data, loading, error, fetchData } = useFetchData(getMoviesUrl('popular'));
@@ -19,13 +20,15 @@ export const HomePage = () => {
   return (
     <div>
       <Header data={top_rated[4]} loading={loading_rated} />
-      <MoviesCategory name="Popular " data={now_playing} />
-      <MoviesCategory name="Trending " data={data} />
-      <MoviesCategory name="Top Rated " data={top_rated} />
-      <MoviesCategory name="Up Coming " data={up_coming} />
-      <MoviesCategory name="Horror" data={horror} />
-      <MoviesCategory name="Action Movies" data={action} />
-      <MoviesCategory name="Romance Movies" data={romance} />
+      <Main>
+        <MoviesCategory name="Popular " data={now_playing} />
+        <MoviesCategory name="Trending " data={data} />
+        <MoviesCategory name="Top Rated " data={top_rated} />
+        <MoviesCategory name="Up Coming " data={up_coming} />
+        <MoviesCategory name="Horror" data={horror} />
+        <MoviesCategory name="Action Movies" data={action} />
+        <MoviesCategory name="Romance Movies" data={romance} />
+      </Main>
     </div>
   );
 };

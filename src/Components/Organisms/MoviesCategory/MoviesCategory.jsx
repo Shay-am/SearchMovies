@@ -4,8 +4,8 @@ import { Wrapper, StyledCards, StyledHeading } from './MoviesCategory.styled';
 import { H3 } from 'Components/Atoms';
 import { Slider } from 'Components/Molecules';
 
-export const MoviesCategory = ({ name, data }) => {
-  useEffect(() => {}, [data]);
+export const MoviesCategory = ({ name, data: movies }) => {
+  useEffect(() => {}, [movies]);
 
   return (
     <Wrapper>
@@ -13,7 +13,7 @@ export const MoviesCategory = ({ name, data }) => {
         <H3>{name}</H3>
       </StyledHeading>
       <StyledCards>
-        <Slider data={data} />
+        <Slider data={movies} />
       </StyledCards>
     </Wrapper>
   );

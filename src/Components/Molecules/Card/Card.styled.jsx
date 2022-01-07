@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: block;
   overflow: hidden;
-  /* width: 28rem;
-  height: 15rem; */
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   transition: all 0.2s ease-in-out;
   cursor: pointer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SearchInput } from 'Components/Molecules';
 import { ListenScrollEvent } from 'Utils/listenScrollEvent';
 import { NavWrapper, StyledIconMovie, StyledIconWrapper, StyledSearchInput } from './Nav.styled';
@@ -9,7 +10,9 @@ export const Nav = () => {
   return (
     <NavWrapper bgColor={isEvent}>
       <StyledIconWrapper>
-        <StyledIconMovie fontSize="6rem" />
+        <Link to="/">
+          <StyledIconMovie fontSize="6rem" />
+        </Link>
       </StyledIconWrapper>
       <StyledSearchInput>
         <SearchInput />

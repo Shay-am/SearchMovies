@@ -9,6 +9,13 @@ export const Header = styled.header`
   display: flex;
   width: 100%;
   height: 20rem;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+`;
+
+export const Main = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;

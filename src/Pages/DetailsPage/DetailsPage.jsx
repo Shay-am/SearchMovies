@@ -18,10 +18,11 @@ import { Description, H1, Button } from 'Components/Atoms';
 import { getTrailer } from 'Api/Services/getTrailer';
 
 export const DetailsPage = () => {
+  const imagePathFromMovieDb = (path) => `https://image.tmdb.org/t/p/w500/${path}`;
   const [isOpen, setIsOpen] = useState(false);
   const { movie } = useSearchContext();
-  const fullPathPoster = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
-  const fullPath2Backdrop = 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+  const fullPathPoster = imagePathFromMovieDb(movie.poster_path);
+  const fullPath2Backdrop = imagePathFromMovieDb(movie.backdrop_path);
   const { data } = useFetchData(getTrailer(movie.id));
 
   const movieKey = data?.data?.results[2]?.key;

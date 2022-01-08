@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFetchData } from 'Hooks/useFetchData';
 import { useNavigate } from 'react-router-dom';
+import { getSearchMovies } from 'Api/Services/getSearchMovies';
 
 const SearchContext = createContext();
 
@@ -11,9 +12,7 @@ export const useSearchContext = () => useContext(SearchContext);
 export const SearchProvider = ({ children }) => {
   let navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const { data, loading, fetchData } = useFetchData(
-    `https://api.themoviedb.org/3/search/movie?api_key=6d65a5afbbce1f141e9cfdb6030a79de&language=en-US&query=${searchTerm}&include_adult=false`
-  );
+  const { data, loading, fetchData } = useFetchData(getSearchMovies(searchTerm));
 
   const [movie, setMovie] = useState([]);
 
@@ -25,7 +24,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   const handleChangePage = () => {
-    return filterMoviesWithImage ? navigate('/movies') : navigate('/');
+    return searchTerm ? navigate('/movies') : navigate('/');
   };
 
   const value = {
@@ -38,10 +37,10 @@ export const SearchProvider = ({ children }) => {
     setSearchTerm
   };
   useEffect(() => {
-    !loading && handleChangePage();
+    handleChangePage();
 
     return () => {};
-  }, [data]);
+  }, [searchTerm]);
   return (
     <>
       <SearchContext.Provider value={value}>{children}</SearchContext.Provider>

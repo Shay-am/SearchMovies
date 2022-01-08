@@ -36,10 +36,39 @@ export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border: 2px solid black;
 `;
 export const Heading = styled.div`
   text-align: center;
+  width: 80%;
+  transform: translateY(2rem);
+`;
+
+export const Main = styled.main`
   width: 100%;
-  transform: translateY(4rem);
+  height: 100%;
+`;
+
+export const StyledButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10rem;
+`;
+
+export const ContainerTrailer = styled.div`
+  text-align: center;
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  width: 100%;
+  height: 60rem;
+
+  @media (max-width: 450px) {
+    height: 40rem;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
 `;

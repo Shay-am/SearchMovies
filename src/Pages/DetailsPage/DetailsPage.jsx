@@ -1,36 +1,69 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchContext } from 'Context/SearchProvider';
-import { Wrapper, WrapperHeader, Img, ImageContainer, Heading } from './DetailsPage.styled';
+import {
+  Wrapper,
+  WrapperHeader,
+  Img,
+  ImageContainer,
+  Heading,
+  Main,
+  StyledButton,
+  ContainerTrailer
+} from './DetailsPage.styled';
 import { useFetchData } from 'Api/axios';
 import { getMoviesUrl } from 'Api/Services/getMovieUrl';
 import { Header } from './DetailsPage.styled';
-import { Description, H1 } from 'Components/Atoms';
+import { Description, H1, Button } from 'Components/Atoms';
+import { getTrailer } from 'Api/Services/getTrailer';
 
 export const DetailsPage = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { movie } = useSearchContext();
-  const fullPath = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
-  const fullPath2 = 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
-  const { data } = useFetchData(getMoviesUrl('popular'));
+  const fullPathPoster = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
+  const fullPath2Backdrop = 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+  const { data } = useFetchData(getTrailer(movie.id));
+
+  const movieKey = data?.data?.results[2]?.key;
+
+  const handleOpenModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
-    console.log(movie);
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <Wrapper>
-      <WrapperHeader bgImage={fullPath2}>
+    <>
+      <WrapperHeader bgImage={fullPath2Backdrop}>
         <Header>
           <ImageContainer>
-            <Img src={fullPath} />
+            <Img src={fullPathPoster} />
           </ImageContainer>
           <Heading>
-            <H1>{movie.title}</H1>
-            <Description size={'2rem'}>{movie.release_date}</Description>
+            <H1 size={'4rem'}>{movie.title}</H1>
+            <Description size={'2.5rem'}>{movie.release_date}</Description>
           </Heading>
         </Header>
       </WrapperHeader>
-    </Wrapper>
+      <Main>
+        <StyledButton>
+          <Button width={'18rem'} size={'5rem'} onClick={() => handleOpenModal()}>
+            Watch Trailer
+          </Button>
+        </StyledButton>
+        <ContainerTrailer isOpen={isOpen}>
+          <iframe
+            id="trailer"
+            src={`https://www.youtube.com/embed/${movieKey}`}
+            frameBorder="4"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="video"
+          />
+        </ContainerTrailer>
+      </Main>
+    </>
   );
 };

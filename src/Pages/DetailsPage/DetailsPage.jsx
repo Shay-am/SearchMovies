@@ -51,7 +51,7 @@ export const DetailsPage = () => {
       <Main>
         <StyledButton>
           <Button width={'18rem'} size={'5rem'} onClick={() => handleOpenModal()}>
-            Watch Trailer
+            See Trailer
           </Button>
         </StyledButton>
         <ContainerTrailer isOpen={isOpen}>

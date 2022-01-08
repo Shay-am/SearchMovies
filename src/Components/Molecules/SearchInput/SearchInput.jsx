@@ -15,6 +15,7 @@ export const SearchInput = () => {
         aria-label="search"
         name="searchInput"
         id="searchInput"
+        value={searchTerm || ''}
         onChange={handleChange}
         placeholder="search movie"
       />

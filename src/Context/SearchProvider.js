@@ -25,7 +25,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   const handleChangePage = () => {
-    return searchTerm ? navigate('/movies') : navigate('/');
+    return filterMoviesWithImage ? navigate('/movies') : navigate('/');
   };
 
   const value = {
@@ -34,10 +34,13 @@ export const SearchProvider = ({ children }) => {
     filterMoviesWithImage,
     loading,
     movie,
-    setMovie
+    setMovie,
+    setSearchTerm
   };
   useEffect(() => {
     !loading && handleChangePage();
+
+    return () => {};
   }, [data]);
   return (
     <>

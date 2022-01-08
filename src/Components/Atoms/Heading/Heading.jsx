@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const H1 = styled.h1`
   color: white;
-  font-size: calc(5rem + 2vmin);
+  font-size: ${({ size }) => (size ? size : `calc(5rem + 2vmin)`)};
 
-  @media (max-width: 400px) {
-    font-size: 4.5rem;
+  @media (max-width: 420px) {
+    font-size: 3.5rem;
   }
 `;
 

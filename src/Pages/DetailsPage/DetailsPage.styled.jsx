@@ -28,17 +28,18 @@ export const Header = styled.section`
 `;
 
 export const ImageContainer = styled.div`
-  width: 50vw;
-  height: 50vh;
+  width: 84vw;
+  height: 58vh;
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: 2px solid black;
 `;
 export const Heading = styled.div`
   text-align: center;
   width: 100%;
-  padding: 1rem;
+  transform: translateY(4rem);
 `;

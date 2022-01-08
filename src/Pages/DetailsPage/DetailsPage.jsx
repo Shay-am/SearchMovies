@@ -5,17 +5,16 @@ import { Wrapper, WrapperHeader, Img, ImageContainer, Heading } from './DetailsP
 import { useFetchData } from 'Api/axios';
 import { getMoviesUrl } from 'Api/Services/getMovieUrl';
 import { Header } from './DetailsPage.styled';
-import { H1 } from 'Components/Atoms';
+import { Description, H1 } from 'Components/Atoms';
 
 export const DetailsPage = () => {
   const { movie } = useSearchContext();
   const fullPath = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
   const fullPath2 = 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
   const { data } = useFetchData(getMoviesUrl('popular'));
-  console.log(movie);
 
   useEffect(() => {
-    console.log(movie.id);
+    console.log(movie);
     window.scrollTo(0, 0);
   }, []);
 
@@ -28,6 +27,7 @@ export const DetailsPage = () => {
           </ImageContainer>
           <Heading>
             <H1>{movie.title}</H1>
+            <Description size={'2rem'}>{movie.release_date}</Description>
           </Heading>
         </Header>
       </WrapperHeader>

@@ -24,4 +24,8 @@ export const StyledCard = styled.div`
     width: 15rem;
     height: 20rem;
   }
+  @media (max-width: 400px) {
+    width: 12rem;
+    height: 17rem;
+  }
 `;

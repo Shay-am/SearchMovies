@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
   display: block;
-  min-width: 80%;
-  max-width: 100%;
-  margin: 3rem 5rem;
+  margin: 3rem 2rem;
 `;
 
 export const StyledCards = styled.div`
@@ -15,6 +13,7 @@ export const StyledCards = styled.div`
 `;
 
 export const StyledHeading = styled.div`
-  width: 80%;
-  transform: translateX(7rem);
+  width: 100%;
+
+  border-bottom: 1px solid grey;
 `;

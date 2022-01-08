@@ -20,6 +20,12 @@ const Arrow = styled.div`
     font-size: 3rem;
   }
 
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: translateX(0.2rem);
+  }
+
   @media (min-width: 1024px) {
   }
 `;

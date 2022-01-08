@@ -10,6 +10,11 @@ export const NavWrapper = styled.nav`
   background-color: ${({ theme, bgColor }) => (bgColor ? `${theme.color.black}` : 'transparent')};
   transition: all 0.3s ease-in-out;
   z-index: 11;
+
+  @media (max-width: 500px) {
+    margin-bottom: 5rem;
+    background-color: ${({ theme }) => theme.color.black};
+  }
 `;
 
 export const StyledIconMovie = styled(MovieFilterIcon)`

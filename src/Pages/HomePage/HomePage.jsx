@@ -2,24 +2,30 @@
 import React, { useEffect } from 'react';
 import { Header } from 'Components/Organisms';
 import { MoviesCategory } from 'Components/Organisms';
-import { useFetchData } from 'Hooks/useFetchData';
-
-import { getMoviesUrl } from 'Api/Services/getMovieUrl';
-import { getMoviesGenreUrl } from 'Api/Services/getMoviesWithGenres';
-import { Main } from './HomePage.styled';
-import { Description } from 'Components/Atoms';
+import { Main, Wrapper } from './HomePage.styled';
+import { Description, Spinner } from 'Components/Atoms';
 import { useFetchAllGenresMovies } from 'Api/Services/useFetchAllGenresMovies';
 
 export const HomePage = () => {
-  const { data, loading } = useFetchAllGenresMovies();
+  const { data, loading, error } = useFetchAllGenresMovies();
+
   const { topOne, popular, nowPlaying, topRated, upComming, horror, action, romance } = data;
 
   useEffect(() => {}, [data]);
 
   return (
-    <div>
+    <>
+      {error && (
+        <Wrapper>
+          <Description error={error} size={'4rem'}>
+            Ups! something went wrong. Try again !!!
+          </Description>
+        </Wrapper>
+      )}
       {loading ? (
-        <Description>Loading</Description>
+        <Wrapper>
+          <Spinner loading={loading} />
+        </Wrapper>
       ) : (
         <>
           <Header data={topOne} loading={loading} />
@@ -34,6 +40,6 @@ export const HomePage = () => {
           </Main>
         </>
       )}
-    </div>
+    </>
   );
 };

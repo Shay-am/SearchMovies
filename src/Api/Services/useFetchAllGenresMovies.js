@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
-
 import { getMoviesUrl } from './getMovieUrl';
 import { getMoviesGenreUrl } from './getMoviesWithGenres';
 import { useEffect, useState } from 'react';
@@ -16,13 +14,13 @@ const getRomance = axios.get(getMoviesGenreUrl(10749));
 export const useFetchAllGenresMovies = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
+  const [error, setError] = useState(false);
 
   const category = {};
 
-  const dataArray = [];
-
   const fetchAllData = async () => {
     setLoading(true);
+    setError(false);
     try {
       const response = await axios.all([
         getPopular,
@@ -42,9 +40,10 @@ export const useFetchAllGenresMovies = () => {
       category.action = response[5].data.results;
       category.romance = response[6].data.results;
       category.topOne = response[2]?.data?.results[2];
+
       setData(category);
     } catch (error) {
-      console.log(error);
+      setError(true);
     }
 
     setLoading(false);
@@ -53,11 +52,5 @@ export const useFetchAllGenresMovies = () => {
     !loading && fetchAllData();
   }, []);
 
-  return { fetchAllData, data, loading, dataArray };
+  return { data, loading, error };
 };
-
-// await axios.all([axiosrequest1, axiosrequest2, axiosrequest3]).then(axios.spread(function(res1, res2, res3) {
-//     console.log(res1);
-//     console.log(res2);
-//     console.log(res3);
-//   }));

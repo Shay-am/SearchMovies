@@ -24,6 +24,7 @@ export const DetailsPage = () => {
   const { movie } = useSearchContext();
   const fullPathPoster = getFullPathImage(movie.poster_path);
   const fullPath2Backdrop = getFullPathImage(movie.backdrop_path);
+
   const { data } = useFetchData(getTrailer(movie.id));
 
   const { data: detailsMovie, loading } = useFetchData(getCastMovie(movie.id));

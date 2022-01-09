@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  margin-top: 4rem;
   border-bottom: 1px solid grey;
 `;
 export const Heading = styled.section`

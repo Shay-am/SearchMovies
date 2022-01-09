@@ -47,28 +47,3 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
 `;
-
-export const StyledButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10rem;
-`;
-
-export const ContainerTrailer = styled.div`
-  text-align: center;
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  width: 100%;
-  height: 60rem;
-
-  @media (max-width: 450px) {
-    height: 40rem;
-  }
-
-  iframe {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  }
-`;

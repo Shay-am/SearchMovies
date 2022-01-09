@@ -15,7 +15,7 @@ import {
 import { useHandleClickNaviagteToDetails } from 'Hooks/useHandleClickNaviagteToDetails';
 import { getFullPathImage } from 'Utils/getFullPathImage';
 
-export const Header = ({ data, loading }) => {
+export const Header = ({ data }) => {
   const { handleClickNavigate } = useHandleClickNaviagteToDetails(data);
 
   const fullPathImage = getFullPathImage(data?.poster_path);

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header } from 'Components/Organisms';
 import { MoviesCategory } from 'Components/Organisms';
 import { useFetchData } from 'Hooks/useFetchData';
@@ -8,30 +8,31 @@ import { getMoviesUrl } from 'Api/Services/getMovieUrl';
 import { getMoviesGenreUrl } from 'Api/Services/getMoviesWithGenres';
 import { Main } from './HomePage.styled';
 import { Description } from 'Components/Atoms';
+import { useFetchAllGenresMovies } from 'Api/Services/useFetchAllGenresMovies';
 
 export const HomePage = () => {
-  const { data } = useFetchData(getMoviesUrl('popular'));
-  const { data: now_playing } = useFetchData(getMoviesUrl('now_playing'));
-  const { data: top_rated, loading: loading_rated } = useFetchData(getMoviesUrl('top_rated'));
-  const { data: up_coming, loading: loading_up_comming } = useFetchData(getMoviesUrl('upcoming'));
-  const { data: horror } = useFetchData(getMoviesGenreUrl(27));
-  const { data: action } = useFetchData(getMoviesGenreUrl(28));
-  const { data: romance, loading } = useFetchData(getMoviesGenreUrl(10749));
+  const { data, loading } = useFetchAllGenresMovies();
+  const { topOne, popular, nowPlaying, topRated, upComming, horror, action, romance } = data;
+
+  useEffect(() => {}, [data]);
 
   return (
     <div>
-      <Header data={up_coming[4]} loading={loading_up_comming} />
-      {loading && <Description>Loading...</Description>}
-      {!loading && (
-        <Main>
-          <MoviesCategory name="Popular " data={now_playing} />
-          <MoviesCategory name="Top Rated " data={top_rated} />
-          <MoviesCategory name="Trending " data={data} />
-          <MoviesCategory name="Up Coming " data={up_coming} />
-          <MoviesCategory name="Horror" data={horror} />
-          <MoviesCategory name="Action Movies" data={action} />
-          <MoviesCategory name="Romance Movies" data={romance} />
-        </Main>
+      {loading ? (
+        <Description>Loading</Description>
+      ) : (
+        <>
+          <Header data={topOne} loading={loading} />
+          <Main>
+            <MoviesCategory name="Popular " data={nowPlaying} />
+            <MoviesCategory name="Top Rated " data={topRated} />
+            <MoviesCategory name="Up Coming " data={upComming} />
+            <MoviesCategory name="Trending " data={popular} />
+            <MoviesCategory name="Horror" data={horror} />
+            <MoviesCategory name="Action Movies" data={action} />
+            <MoviesCategory name="Romance Movies" data={romance} />
+          </Main>
+        </>
       )}
     </div>
   );

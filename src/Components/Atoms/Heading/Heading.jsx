@@ -11,5 +11,5 @@ export const H1 = styled.h1`
 
 export const H3 = styled.h3`
   color: white;
-  font-size: calc(3rem + 1vmin);
+  font-size: calc(2rem + 1vmin);
 `;

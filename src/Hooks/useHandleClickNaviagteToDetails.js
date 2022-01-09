@@ -7,7 +7,7 @@ export const useHandleClickNaviagteToDetails = (props) => {
 
   const handleClickNavigate = () => {
     setMovie(props);
-    navigate(`/movie/${props.id}`);
+    navigate(`/movie/${props.title}`);
   };
 
   return { handleClickNavigate };

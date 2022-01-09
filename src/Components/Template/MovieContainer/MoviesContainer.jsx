@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Wrapper, StyledCard } from './MoviesContainer.styled';
-
 import { CardMovie } from 'Components/Molecules';
 import { useSearchContext } from 'Context/SearchProvider';
 import { Description } from 'Components/Atoms';
@@ -14,7 +12,6 @@ export const MoviesContainer = () => {
       {loading && <Description>Loading...</Description>}
       <Wrapper>
         {!loading &&
-          filterMovies &&
           filterMovies.map((movie, index) => {
             return (
               <StyledCard key={index}>

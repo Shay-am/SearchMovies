@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchContext } from 'Context/SearchProvider';
 import {
-  Wrapper,
   WrapperHeader,
   Img,
   ImageContainer,
@@ -14,9 +13,11 @@ import {
 import { useFetchData } from 'Api/axios';
 
 import { Header } from './DetailsPage.styled';
-import { Description, H1, Button } from 'Components/Atoms';
+import { Description, H1, Button, H3 } from 'Components/Atoms';
 import { getTrailer } from 'Api/Services/getTrailer';
 import { getFullPathImage } from 'Utils/getFullPathImage';
+import { DetailsContainer } from 'Components/Organisms/DetailsContainer/DetailsContainer';
+import { getCastMovie } from 'Api/Services/getCastMovie';
 
 export const DetailsPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,12 @@ export const DetailsPage = () => {
   const fullPath2Backdrop = getFullPathImage(movie.backdrop_path);
   const { data } = useFetchData(getTrailer(movie.id));
 
-  const movieKey = data?.data?.results[2]?.key;
+  const { data: detailsMovie, loading } = useFetchData(getCastMovie(movie.id));
+
+  const cast = detailsMovie?.data?.cast;
+  const crew = detailsMovie?.data?.crew;
+
+  const movieKey = data?.data?.results[0]?.key;
 
   const handleOpenModal = () => {
     setIsOpen(!isOpen);
@@ -64,6 +70,8 @@ export const DetailsPage = () => {
             title="video"
           />
         </ContainerTrailer>
+        <DetailsContainer name="Cast" data={cast} />
+        <DetailsContainer name="Crew" data={crew} />
       </Main>
     </>
   );

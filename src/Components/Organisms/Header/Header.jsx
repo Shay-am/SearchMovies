@@ -12,18 +12,24 @@ import {
   IMG,
   WrapperImage
 } from './Header.styled';
+import { useHandleClickNaviagteToDetails } from 'Hooks/useHandleClickNaviagteToDetails';
+import { getFullPathImage } from 'Utils/getFullPathImage';
 
 export const Header = ({ data, loading }) => {
+  const { handleClickNavigate } = useHandleClickNaviagteToDetails(data);
+
+  const fullPathImage = getFullPathImage(data?.poster_path);
+
   return (
     <>
       {data && (
         <Wrapper>
           <WrapperImage>
-            <IMG src={'https://image.tmdb.org/t/p/w500/' + data.poster_path} />
+            <IMG src={fullPathImage} />
             <WrapperDescription>
               <H1>{data.original_title}</H1>
               <StyledButton>
-                <Button>Details</Button>
+                <Button onClick={() => handleClickNavigate()}>Details</Button>
               </StyledButton>
               <StyledDescription>
                 <Description>{data.overview}</Description>

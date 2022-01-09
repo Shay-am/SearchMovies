@@ -12,17 +12,17 @@ import {
   ContainerTrailer
 } from './DetailsPage.styled';
 import { useFetchData } from 'Api/axios';
-import { getMoviesUrl } from 'Api/Services/getMovieUrl';
+
 import { Header } from './DetailsPage.styled';
 import { Description, H1, Button } from 'Components/Atoms';
 import { getTrailer } from 'Api/Services/getTrailer';
+import { getFullPathImage } from 'Utils/getFullPathImage';
 
 export const DetailsPage = () => {
-  const imagePathFromMovieDb = (path) => `https://image.tmdb.org/t/p/w500/${path}`;
   const [isOpen, setIsOpen] = useState(false);
   const { movie } = useSearchContext();
-  const fullPathPoster = imagePathFromMovieDb(movie.poster_path);
-  const fullPath2Backdrop = imagePathFromMovieDb(movie.backdrop_path);
+  const fullPathPoster = getFullPathImage(movie.poster_path);
+  const fullPath2Backdrop = getFullPathImage(movie.backdrop_path);
   const { data } = useFetchData(getTrailer(movie.id));
 
   const movieKey = data?.data?.results[2]?.key;

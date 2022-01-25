@@ -7,3 +7,13 @@
 React
 
 Styled Components
+
+Context
+
+## Instalation
+
+Run `npm install` to install all the dependencies.
+
+## Clone repostitory
+
+`git clone git@github.com:Shay-am/SearchMovies.git`

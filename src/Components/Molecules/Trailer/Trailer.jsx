@@ -28,7 +28,7 @@ export const Trailer = ({ movieKey }) => {
         </Button>
       </StyledButton>
       <ContainerTrailer isOpen={isOpen}>
-        <YouTube videoId={movieKey} opts={opts} loading="" />
+        <YouTube videoId={movieKey} opts={opts} />
       </ContainerTrailer>
     </Wrapper>
   );

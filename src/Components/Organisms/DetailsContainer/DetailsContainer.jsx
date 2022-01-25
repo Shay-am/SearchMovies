@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { Wrapper, Heading, CardContainer, StyledButton } from './DetailsContainer.styled';
@@ -6,15 +5,15 @@ import { H3 } from 'Components/Atoms/Heading/Heading';
 import { CastCard } from 'Components/Molecules/CastCard/CastCard';
 import { Button } from 'Components/Atoms';
 
-const InitialCountToShowData = 10;
+const counterToShowData = 10;
 
 export const DetailsContainer = ({ name, data }) => {
-  const [count, setCount] = useState(InitialCountToShowData);
+  const [count, setCount] = useState(counterToShowData);
 
   const initial = data && data.filter((item) => item.profile_path).slice(0, count);
 
   const handleClickPagination = () => {
-    setCount((prevCount) => prevCount + 10);
+    setCount((prevCount) => prevCount + counterToShowData);
   };
 
   useEffect(() => {}, [count, initial]);

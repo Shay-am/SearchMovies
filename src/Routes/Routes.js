@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Route, Routes } from 'react-router-dom';
 import { HomePage, MoviesPage, DetailsPage } from 'Pages';
 

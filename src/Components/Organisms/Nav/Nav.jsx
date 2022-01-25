@@ -4,6 +4,7 @@ import { SearchInput } from 'Components/Molecules';
 import { ListenScrollEvent } from 'Utils/listenScrollEvent';
 import { NavWrapper, StyledIconMovie, StyledIconWrapper, StyledSearchInput } from './Nav.styled';
 import { useSearchContext } from 'Context/SearchProvider';
+
 export const Nav = () => {
   const { isEvent } = ListenScrollEvent();
   const { setSearchTerm } = useSearchContext();

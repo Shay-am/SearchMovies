@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, H1, Description } from 'Components/Atoms';
-
 import {
   Wrapper,
   WrapperDescription,
@@ -40,4 +37,8 @@ export const Header = ({ data }) => {
       )}
     </>
   );
+};
+
+Header.propTypes = {
+  data: PropTypes.object
 };

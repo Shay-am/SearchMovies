@@ -39,7 +39,7 @@ export const useFetchAllGenresMovies = () => {
       category.horror = response[4].data.results;
       category.action = response[5].data.results;
       category.romance = response[6].data.results;
-      category.topOne = response[2]?.data?.results[2];
+      category.topOne = response[1]?.data?.results[2];
 
       setData(category);
     } catch (error) {

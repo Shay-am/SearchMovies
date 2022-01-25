@@ -10,7 +10,7 @@ export const useFetchData = (url) => {
     try {
       setLoading(true);
       const response = await axios.get(url);
-      setData(response.data.results);
+      setData(response);
     } catch (error) {
       setError('We can noot find this movie');
     }

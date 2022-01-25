@@ -11,7 +11,7 @@ export const Trailer = ({ movieKey }) => {
     height: '500',
     width: '390',
     playerVars: {
-      autoplay: 1
+      autoplay: 0
     }
   };
 

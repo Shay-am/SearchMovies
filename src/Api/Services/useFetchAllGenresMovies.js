@@ -16,8 +16,6 @@ export const useFetchAllGenresMovies = () => {
   const [data, setData] = useState({});
   const [error, setError] = useState(false);
 
-  const category = {};
-
   const fetchAllData = async () => {
     setLoading(true);
     setError(false);
@@ -31,15 +29,16 @@ export const useFetchAllGenresMovies = () => {
         getAction,
         getRomance
       ]);
-
-      category.popular = response[0]?.data?.results;
-      category.nowPlaying = response[1].data.results;
-      category.topRated = response[2].data.results;
-      category.upComming = response[3].data.results;
-      category.horror = response[4].data.results;
-      category.action = response[5].data.results;
-      category.romance = response[6].data.results;
-      category.topOne = response[1]?.data?.results[2];
+      const category = {
+        popular: response[0]?.data?.results,
+        nowPlaying: response[1].data.results,
+        topRated: response[2].data.results,
+        upComming: response[3].data.results,
+        horror: response[4].data.results,
+        action: response[5].data.results,
+        romance: response[6].data.results,
+        topOne: response[1]?.data?.results[2]
+      };
 
       setData(category);
     } catch (error) {

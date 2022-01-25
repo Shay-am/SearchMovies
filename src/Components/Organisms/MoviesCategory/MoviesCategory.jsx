@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, StyledCards, StyledHeading } from './MoviesCategory.styled';
 import { H3 } from 'Components/Atoms';
 import { Slider } from 'Components/Molecules';
 
 export const MoviesCategory = ({ name, data: movies }) => {
-  useEffect(() => {}, [movies]);
-
   return (
     <Wrapper>
       <StyledHeading>

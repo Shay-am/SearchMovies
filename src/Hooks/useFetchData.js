@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const useFetchData = (url) => {
   const [data, setData] = useState([]);
+  const [dataSearch, setDataSearch] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -11,6 +12,7 @@ export const useFetchData = (url) => {
       setLoading(true);
       const response = await axios.get(url);
       setData(response);
+      setDataSearch(response.data.results);
     } catch (error) {
       setError('We can noot find this movie');
     }
@@ -20,5 +22,5 @@ export const useFetchData = (url) => {
   useEffect(() => {
     !loading && fetchData();
   }, []);
-  return { data, error, loading, fetchData };
+  return { data, dataSearch, error, loading, fetchData };
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { Wrapper, Heading, CardContainer, StyledButton } from './DetailsContainer.styled';
 import { H3 } from 'Components/Atoms/Heading/Heading';
@@ -16,7 +16,6 @@ export const DetailsContainer = ({ name, data }) => {
     setCount((prevCount) => prevCount + counterToShowData);
   };
 
-  useEffect(() => {}, [count, initial]);
   return (
     <Wrapper>
       <Heading>

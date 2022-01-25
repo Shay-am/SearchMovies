@@ -11,11 +11,11 @@ export const useSearchContext = () => useContext(SearchContext);
 export const SearchProvider = ({ children }) => {
   let navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const { data, loading, fetchData } = useFetchData(getSearchMovies(searchTerm));
+  const { dataSearch, loading, fetchData } = useFetchData(getSearchMovies(searchTerm));
 
   const [movie, setMovie] = useState([]);
 
-  const filterMoviesWithImage = data.filter((item) => item.poster_path !== null);
+  const filterMoviesWithImage = dataSearch?.filter((item) => item.poster_path !== null);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);

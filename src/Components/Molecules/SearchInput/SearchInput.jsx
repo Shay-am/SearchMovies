@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { InputWrapper, StyledInput, StyledSearchIcon } from './SearchInput.styled';
 import { useSearchContext } from 'Context/SearchProvider';
 
 export const SearchInput = () => {
   const { handleChange, searchTerm } = useSearchContext();
-
-  useEffect(() => {}, [searchTerm]);
 
   return (
     <InputWrapper>

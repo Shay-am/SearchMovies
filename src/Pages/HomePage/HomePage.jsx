@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from 'Components/Organisms';
 import { MoviesCategory } from 'Components/Organisms';
 import { Main, Wrapper } from './HomePage.styled';
@@ -9,8 +9,6 @@ export const HomePage = () => {
   const { data, loading, error } = useFetchAllGenresMovies();
 
   const { topOne, popular, nowPlaying, topRated, upComming, horror, action, romance } = data;
-
-  useEffect(() => {}, [data]);
 
   return (
     <>

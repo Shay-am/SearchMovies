@@ -29,7 +29,7 @@ export const useFetchAllGenresMovies = () => {
         getAction,
         getRomance
       ]);
-      const category = {
+      const categories = {
         popular: response[0]?.data?.results,
         nowPlaying: response[1].data.results,
         topRated: response[2].data.results,
@@ -40,7 +40,7 @@ export const useFetchAllGenresMovies = () => {
         topOne: response[1]?.data?.results[2]
       };
 
-      setData(category);
+      setData(categories);
     } catch (error) {
       setError(true);
     }
